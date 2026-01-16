@@ -1,4 +1,4 @@
-# ROS2 + 相机 + 语音 + LLM 一体化容器（重但一体化）
+# ROS2 + 相机 + 语音 + LLM 一体化容器
 
 这套仓库主要做两件事：
 
@@ -17,14 +17,14 @@
 
 ---
 
-## 1. 你需要准备的目录/文件
+## 1. 需要准备的目录/文件
 
-### 1.1 代码目录（建议项目根目录）
-你的 `.py` 都在根目录即可。除此以外，如果你要跑 Orbbec/YOLO 的脚本，还需要把下面这些目录也放在项目根目录：
+### 1.1 代码目录
+ `.py` 都在根目录即可。除此以外，如果要跑 Orbbec/YOLO 的脚本，还需要把下面这些目录也放在项目根目录：
 
 - `pyorbbecsdk-2-main/`（Orbbec SDK Python 工程，里面有 `examples/utils.py`）
 - `YOLO-3D-main/`（YOLO-3D 工程，里面有 `detection_model.py` 等）
-- `机器人_project_有图/`（你工程里引用的一些模块/资源）
+- `机器人_project_有图/`（工程里引用的一些模块/资源）
 
 ### 1.2 必要配置/资源文件（NLU 逻辑需要）
 以下文件名在 `config_markers.py` / `prompts_nlu.py` 等里会被读取（或用于点位维护）：
@@ -36,9 +36,9 @@
 - `system_prompt*.txt`（提示词）
 - `examples_nlu.json`（few-shot 示例）
 
-> ⚠️ 注意：你现在的 `prompts_nlu.py` 里 `EXAMPLES_FILE` 写的是 `package.json`；如果你实际文件叫 `examples_nlu.json`，改一行就行。
+> ⚠️ 注意：现在的 `prompts_nlu.py` 里 `EXAMPLES_FILE` 写的是 `package.json`；如果实际文件叫 `examples_nlu.json`，改一行就行。
 
-### 1.3 离线 ASR 模型目录（强烈建议）
+### 1.3 离线 ASR 模型目录
 为了容器离线也能语音识别，建议把 faster-whisper 模型目录也放到项目根目录，例如：
 
 - `faster-whisper-small/`（目录里要能递归找到 `model.bin`）
@@ -85,15 +85,15 @@ conda create -n VLN python=3.12 -y \
 pip install requirements.txt
 ```
 
-> 如果你没有 GPU 或不需要 YOLO/torch，可在 Dockerfile 里把 torch 那段注释掉，构建会更快更稳。
+> 如果没有 GPU 或不需要 YOLO/torch，可在 Dockerfile 里把 torch 那段注释掉，构建会更快更稳。
 
 ---
 
-## 3. 启动容器（关键！）
+## 3. 启动容器
 
 下面给你一个“尽量一把梭”的启动方式（适合：ROS2 + `/cmd_vel` + 相机 USB + OpenCV 窗口显示）：
 
-### 3.1 Linux（X11 图形界面）
+### 3.1 Linux
 ```bash
 # 允许 root 容器访问你的 X11（只对本机有效）
 xhost +local:root
@@ -176,13 +176,13 @@ python3 main_llm_nav.py
 
 ---
 
-## 5. config.yml（集中配置建议）
+## 5. config.yml
 仓库提供了 `config.yml`，用于集中管理：机器人 IP、Ollama 地址、相机类型、ROS2 话题、ASR 模型目录等。  
 **当前代码还是以硬编码为主**，如果你希望“所有脚本优先读取 config.yml”，我可以按最小改动给你补上。
 
 ---
 
-## 6. 常见问题（排错顺序）
+## 6. 常见问题
 
 1) **Ollama 调用失败**  
    - 宿主机确认：`curl http://127.0.0.1:11434/api/tags` 能返回

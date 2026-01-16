@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Git / IDE
+.git/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / outputs
+logs/
+log/
+*.log
+output/
+outputs/
+runs/
+checkpoints/
+model_export/
+roc_plots/
+
+# Large model weights / media（按需保留/删除）
+# 如果你希望把离线 ASR 模型和 YOLO 权重也塞进镜像，
+# 请不要忽略 faster-whisper-small/ 或你的权重目录。
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# 视频/图片如果非常大可以忽略（否则镜像会巨大）
+*.mp4
+*.avi
+*.mov
+*.mkv

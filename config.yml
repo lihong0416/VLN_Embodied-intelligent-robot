@@ -1,0 +1,50 @@
+# 统一配置建议（当前代码多为硬编码；你想要“脚本自动读这个文件”我可以给你最小改动）
+robot:
+  host: "192.168.10.10"
+  port: 31001
+
+ollama:
+  url: "http://localhost:11434/api/chat"
+  model: "qwen2.5:7b"
+
+asr:
+  whisper_base_dir: "faster-whisper-small"   # asr_client.py 会在这里递归找 model.bin
+  record_seconds: 3.0
+  device: "cpu"         # "cpu" / "cuda"
+  compute_type: "int8"  # int8 / float16 等
+
+camera:
+  # llm_cam_ros2_nav.py 支持：dummy / realsense / custom
+  type: "realsense"
+  send_image: false
+  min_front_m: 0.55
+
+ros2:
+  domain_id: 0
+  localhost_only: false
+  cmd_vel_topic: "/cmd_vel"
+  hz: 20.0
+  # 某些网络 multicast 不通时可设置 dds_peer（CycloneDDS 单播发现）
+  dds_peer: ""
+
+rpp_driver:
+  # rpp_control_cli.py 默认串口与波特率（你可按实际修改）
+  robot: "rpp"
+  port: "/dev/ttyUSB0"
+  baud_rate: 230400
+  publish_odom: true
+  publish_odom_tf: true
+
+maps:
+  maps_file: "maps.json"
+  markers_file: "markers.json"
+  actions_config_file: "actions_config.json"
+  current_map_file: "current_map.json"
+
+docker:
+  # 启动建议（Linux GUI）
+  run_hint: >
+    docker run --rm -it --gpus all --network host --ipc host --privileged
+    -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1
+    -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev:/dev
+    agv-ros2-cam:latest bash

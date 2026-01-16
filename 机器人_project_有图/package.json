@@ -1,0 +1,269 @@
+[
+  {
+    "user": "去A点",
+    "assistant": {
+      "action": "move_to_marker",
+      "marker": "A",
+      "options": {
+        "distance_tolerance": 0.5
+      }
+    }
+  },
+  {
+    "user": "去门口",
+    "assistant": {
+      "action": "move_to_marker",
+      "marker": "A",
+      "options": {
+        "distance_tolerance": 0.5
+      }
+    }
+  },
+  {
+    "user": "去外面",
+    "assistant": {
+      "action": "move_to_marker",
+      "marker": "B",
+      "options": {
+        "distance_tolerance": 0.5
+      }
+    }
+  },
+  {
+    "user": "去充电桩",
+    "assistant": {
+      "action": "move_to_marker",
+      "marker": "CHARGE",
+      "options": {
+        "distance_tolerance": 0.5
+      }
+    }
+  },
+  {
+    "user": "从A点和B点来回巡逻三圈",
+    "assistant": {
+      "action": "cruise_markers",
+      "markers": ["A", "B"],
+      "count": 3,
+      "distance_tolerance": 0.5
+    }
+  },
+  {
+    "user": "在A点和B点之间一直巡逻",
+    "assistant": {
+      "action": "cruise_markers",
+      "markers": ["A", "B"],
+      "count": -1,
+      "distance_tolerance": 0.5
+    }
+  },
+  {
+    "user": "取消任务",
+    "assistant": {
+      "action": "cancel_move"
+    }
+  },
+  {
+    "user": "急停",
+    "assistant": {
+      "action": "estop",
+      "flag": true
+    }
+  },
+  {
+    "user": "恢复正常运行",
+    "assistant": {
+      "action": "estop",
+      "flag": false
+    }
+  },
+  {
+    "user": "切换到二楼地图",
+    "assistant": {
+      "action": "set_map",
+      "map_name": "map2",
+      "floor": 2
+    }
+  },
+  {
+    "user": "切换回一楼地图",
+    "assistant": {
+      "action": "set_map",
+      "map_name": "map1",
+      "floor": 1
+    }
+  },
+  {
+    "user": "灯光调成红色",
+    "assistant": {
+      "action": "set_led_color",
+      "r": 100,
+      "g": 0,
+      "b": 0
+    }
+  },
+  {
+    "user": "灯带变成绿色一点",
+    "assistant": {
+      "action": "set_led_color",
+      "r": 0,
+      "g": 80,
+      "b": 0
+    }
+  },
+  {
+    "user": "慢慢往前开",
+    "assistant": {
+      "action": "joy_control",
+      "linear_velocity": 0.2,
+      "angular_velocity": 0.0
+    }
+  },
+  {
+    "user": "原地向右转一点",
+    "assistant": {
+      "action": "joy_control",
+      "linear_velocity": 0.0,
+      "angular_velocity": -0.3
+    }
+  },
+  {
+    "user": "在当前位置设置为C点",
+    "assistant": {
+      "action": "insert_marker_here",
+      "marker": "C",
+      "marker_type": 0,
+      "marker_num": 0
+    }
+  },
+  {
+    "user": "查询当前地图的点位列表",
+    "assistant": {
+      "action": "query_marker_list"
+    }
+  },
+  {
+    "user": "删除C点",
+    "assistant": {
+      "action": "delete_marker",
+      "marker": "C"
+    }
+  },
+  {
+    "user": "现在一共有多少个点位",
+    "assistant": {
+      "action": "count_markers"
+    }
+  },
+  {
+    "user": "开始人检测",
+    "assistant": {
+      "action": "request_human_detection",
+      "frequency": 1.0
+    }
+  },
+  {
+    "user": "打开人检测实时数据",
+    "assistant": {
+      "action": "request_human_detection",
+      "frequency": 1.0
+    }
+  },
+  {
+    "user": "向前走一米",
+    "assistant": {
+      "action": "joy_control",
+      "linear_velocity": 0.2,
+      "angular_velocity": 0.0,
+      "duration_s": 5.0
+    }
+  },
+  {
+    "user": "向前走1米",
+    "assistant": {
+      "action": "joy_control",
+      "linear_velocity": 0.2,
+      "angular_velocity": 0.0,
+      "duration_s": 5.0
+    }
+  },
+  {
+    "user": "向前走十厘米",
+    "assistant": {
+      "action": "joy_control",
+      "linear_velocity": 0.2,
+      "angular_velocity": 0.0,
+      "duration_s": 0.5
+    }
+  },
+  {
+    "user": "向前走10厘米",
+    "assistant": {
+      "action": "joy_control",
+      "linear_velocity": 0.2,
+      "angular_velocity": 0.0,
+      "duration_s": 0.5
+    }
+  },
+  {
+    "user": "向后退一米",
+    "assistant": {
+      "action": "joy_control",
+      "linear_velocity": -0.2,
+      "angular_velocity": 0.0,
+      "duration_s": 5.0
+    }
+  },
+  {
+    "user": "向后退十厘米",
+    "assistant": {
+      "action": "joy_control",
+      "linear_velocity": -0.2,
+      "angular_velocity": 0.0,
+      "duration_s": 0.5
+    }
+  },
+  {
+    "user": "向左转90度",
+    "assistant": {
+      "action": "joy_control",
+      "linear_velocity": 0.0,
+      "angular_velocity": 0.5,
+      "duration_s": 3.2
+    }
+  },
+  {
+    "user": "左转90度",
+    "assistant": {
+      "action": "joy_control",
+      "linear_velocity": 0.0,
+      "angular_velocity": 0.5,
+      "duration_s": 3.2
+    }
+  },
+  {
+    "user": "向右转90度",
+    "assistant": {
+      "action": "joy_control",
+      "linear_velocity": 0.0,
+      "angular_velocity": -0.5,
+      "duration_s": 3.2
+    }
+  },
+  {
+    "user": "右转90度",
+    "assistant": {
+      "action": "joy_control",
+      "linear_velocity": 0.0,
+      "angular_velocity": -0.5,
+      "duration_s": 3.2
+    }
+  },
+  {
+    "user": "去F点",
+    "assistant": {
+      "action": "ask_user_clarification",
+      "reason": "当前地图中没有 marker_id=F，请用户确认是新建点位还是说错了。"
+    }
+  }
+]

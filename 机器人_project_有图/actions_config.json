@@ -1,0 +1,126 @@
+{
+  "actions": [
+    {
+      "action": "move_to_marker",
+      "description": "去某个点位",
+      "sample_user_utterances": [
+        "去A点",
+        "去充电桩",
+        "导航到B点"
+      ]
+    },
+    {
+      "action": "cruise_markers",
+      "description": "在多个点位之间巡游",
+      "sample_user_utterances": [
+        "从A点和B点来回巡逻三圈",
+        "在A,B,C三个点一直绕圈"
+      ]
+    },
+    {
+      "action": "cancel_move",
+      "description": "取消当前移动任务",
+      "sample_user_utterances": [
+        "取消任务",
+        "别走了",
+        "停止导航"
+      ]
+    },
+    {
+      "action": "estop",
+      "description": "急停或解除急停",
+      "sample_user_utterances": [
+        "急停",
+        "立刻停下",
+        "恢复正常运行"
+      ]
+    },
+    {
+      "action": "joy_control",
+      "description": "通过线速度、角速度进行遥控（包括向前/向后走多少米、原地转多少度等相对运动）",
+      "sample_user_utterances": [
+        "慢慢往前开",
+        "往左转一点",
+        "倒车",
+        "向前走一米",
+        "向前走十厘米",
+        "原地左转九十度",
+        "往左转一点"
+      ]
+    },
+    {
+      "action": "set_map",
+      "description": "切换当前地图",
+      "sample_user_utterances": [
+        "切换到一楼地图",
+        "换到map2"
+      ]
+    },
+    {
+      "action": "set_led_color",
+      "description": "设置灯带颜色",
+      "sample_user_utterances": [
+        "把灯调成红色",
+        "灯光变成绿色"
+      ]
+    },
+    {
+      "action": "insert_marker_here",
+      "description": "在当前位置新建一个点位",
+      "sample_user_utterances": [
+        "把这里记成C点",
+        "在当前位置加一个叫货架1的点"
+      ]
+    },
+    {
+      "action": "query_marker_list",
+      "description": "查询当前地图的点位列表",
+      "sample_user_utterances": [
+        "当前地图有哪些点",
+        "点位列表",
+        "现在有哪些marker"
+      ]
+    },
+    {
+      "action": "delete_marker",
+      "description": "删除一个现有点位",
+      "sample_user_utterances": [
+        "删掉C点",
+        "把货架1这个点位删掉"
+      ]
+    },
+    {
+      "action": "count_markers",
+      "description": "统计点位个数",
+      "sample_user_utterances": [
+        "现在有多少个点位",
+        "点位数量"
+      ]
+    },
+    {
+      "action": "request_human_detection",
+      "description": "请求人检测实时数据，走 /api/request_data?topic=human_detection&frequency=1.0",
+      "sample_user_utterances": [
+        "开始人检测",
+        "打开人检测实时数据",
+        "订阅人检测数据",
+        "启动人跟踪检测"
+      ]
+    }
+  ],
+  "allowed_actions": [
+    "move_to_marker",
+    "cruise_markers",
+    "cancel_move",
+    "estop",
+    "joy_control",
+    "set_map",
+    "set_led_color",
+    "insert_marker_here",
+    "query_marker_list",
+    "delete_marker",
+    "count_markers",
+    "request_human_detection",
+    "ask_user_clarification"
+  ]
+}

@@ -1,0 +1,15 @@
+torch>=2.0.0
+torchvision>=0.15.0
+opencv-python>=4.7.0
+numpy>=1.22.0
+ultralytics>=8.0.0  # For YOLOv11
+timm>=0.9.2  # Required for Depth Anything v2
+matplotlib>=3.7.0
+pillow>=9.4.0
+tqdm>=4.65.0
+scipy>=1.10.0
+filterpy>=1.4.5  # For Kalman filtering in tracking
+lap>=0.4.0  # For Hungarian algorithm in tracking
+scikit-image>=0.20.0
+pyyaml>=6.0
+requests>=2.28.0 
